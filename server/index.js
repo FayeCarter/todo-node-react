@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require("cors");
-const  app = express();
+const app = express();
 const pool = require("./db")
 
 // middleware
@@ -13,11 +13,12 @@ app.use(express.json());
 
 app.post("/todos", async(req,res) => {
   try {
-    const { description } = req.body
+    const { description } = req.body;
     const newTodo = await pool.query(
-      "INSERT INTO todo (description) VALUES($1) RETURNING *;", 
+      "INSERT INTO todo(description) VALUES($1) RETURNING *", 
       [description]
-    );
+      );
+      console.log(description)
     res.json(newTodo.rows[0])
   } catch (error) {
     console.log(error.message);
