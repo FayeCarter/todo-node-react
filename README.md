@@ -23,4 +23,4 @@ To run the client
 ```npm start```
 
 ## How the application works
-[App](node_todo/Todo.gif)
+![App](Todo.gif)
